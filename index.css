@@ -1,0 +1,66 @@
+.hidden {
+    display: none;
+}
+#user-block {
+    display: none;
+}
+.chrome-app {
+    width: 300px;
+    padding: 5px 20px;
+    color: #222;
+    font-size: 13px;
+    background-color: rgba(255, 255, 0, 0.83);
+}
+h2 {
+    font-size: 17px;
+}
+h3 {
+    font-size: 16px;
+}
+dt {
+    font-size: 12px;
+    font-weight: bold;
+}
+dd {
+    font-size: 12px;
+    padding: 5px 0;
+}
+.hiddenBtn {
+    /*display: none;*/
+    visibility: hidden;
+}
+.sign-in,
+.sign-out {
+    display: inline-block;
+    padding: 10px 25px;
+    font-size: 13px;
+    line-height: 1.4;
+    border-radius: 4px;
+    color: #fff;
+    background: -webkit-gradient(linear,left top,left bottom,from(#62cf8b),to(#098b5b));
+    background: linear-gradient(
+            180deg
+            ,#62cf8b,#098b5b);
+    border: 0;
+    text-transform: uppercase;
+    -webkit-transition: all .25s ease-in;
+    transition: all .25s ease-in;
+
+    cursor: pointer;
+}
+.sign-in {
+    margin-right: 25px;
+}
+.sign-in:hover,
+.sign-out:hover {
+    background: -webkit-gradient(linear,left top,left bottom,from(#098b5b),to(#62cf8b));
+    background: linear-gradient(
+            180deg
+            ,#098b5b,#62cf8b);
+}
+.btn-app {
+    display: flex;
+    align-items: center;
+    padding-top: 20px;
+    justify-content: center;
+}

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" type="text/css" href="index.css" />
+	<title>Nexford.net</title>
+</head>
+<body>
+<div class="chrome-app">
+
+		<div class="btn-app">
+			<button class="sign-in" id="sign-in">Sign In</button>
+			<button class="sign-out" id="sign-out">Sign Out</button>
+		</div>
+		<button id="sign-in-hint" class="hiddenBtn" ></button>
+		<button  class="hiddenBtn"  id="call-graph">Call Graph</button>
+		<div id="user-block">
+			<h3>Teacher info:</h3>
+			<dl>
+				<dt>Username:</dt>
+				<dd id="username"></dd>
+
+				<dt>Display name:</dt>
+				<dd id="displayname"></dd>
+
+			</dl>
+		</div>
+</div>
+
+<script type="text/javascript" src="msal-browser.min.js"></script>
+<script type="text/javascript" src="auth.js"></script>
+<script type="text/javascript" src="content.js"></script>
+</body>
+</html>

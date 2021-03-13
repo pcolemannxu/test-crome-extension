@@ -1,0 +1,38 @@
+{
+  "name": "grading time extension",
+  "version": "1.0",
+  "description": "nexford",
+  "manifest_version": 2,
+  "permissions": [
+    "identity",
+    "identity.email",
+    "declarativeContent",
+    "webRequest",
+    "activeTab",
+    "webRequestBlocking",
+    "*://learn.stg.nexford.net/*",
+    "*://admin.qa.nexford.net/*",
+    "https://admin.qa.nexford.net/api/neo/grading/start",
+    "*://learn.stg.nexford.net/api/neo/grading/start",
+    "background",
+    "storage",
+    "debugger",
+    "contextMenus"
+  ],
+  "background": {
+    "scripts": ["background.js"]
+  },
+  "browser_action": {
+    "default_icon": "nexford-icon.png",
+    "default_popup": "index.html"
+  },
+  "content_scripts": [{
+    "matches": ["*://learn.stg.nexford.net/*", "*://localhost/*"],
+    "js": [ "content.js"],
+    "css": [ "index.css" ]
+  }],
+  "web_accessible_resources": [
+    "index.html"
+  ],
+  "incognito": "not_allowed"
+}
