@@ -1,8 +1,8 @@
 {
-  "name": "grading time extension",
+  "name": "NXU Faculty Helper",
   "version": "1.0",
-  "description": "nexford",
   "manifest_version": 2,
+  "key": "MIIEvAIBADANBgkqhkiG9w0BAQEFAASCBKYwggSiAgEAAoIBAQC4yGlh2F9cKGdunSnjdTGkuYfoqZoX5OvVGFGEeNgwejicJJd9eYLMtpLiFW7QU+kc2l1ECvk5mJHMrO5RCOFqsqhQGOKBmJALx9ZzLVuUity1VAkqXst1AIoIv3iiV69W6EvzXCFlzFxZ2QHgGeV8sh7/3m/Jf7RK5zvEJJr/Um8JrOqqdEd6Ik+PoUj5rk4epGXk7tmX+LYG66RRrGiEwNL5ncyVahHyjQiTUCrQO3rBTpEehl9ZasaDR/x8QJNazrtgLu8QIkki8EO/N8M5m+u1eAeqGS1AnSWmnOJRiVQJ+SBvNVEho0zWpI67Oo/ldt6SrCYgADIm9AGRzWqjAgMBAAECggEATiJwbS9RI2byVZOfYs7rbvwEvBz7S59BGZpu3dU7lUQZK+1NIYGADZAmC/OEKBNTPyAWz+7T88bP3/w/yYQ3zSY+haAAJ0ybnF+kDo/fabBOI16lgYUUAyV3OLu+BueM/PK9KuqKNMF1S4i3gktw/olTEl68ZjfZxNKCMy5HXC6HNuHrpuwqe632R0TptlTm6X3frJoUgC7L1KFo0pDFzbGv+NlVPz39qw/AnCPO+IYvF4wtlybHbpjQAAjfv0EMCfgDiR/iqvpoT8PGpzzS0w6GDDvj8vAmSCaMt++ba/4qYoMEKHjVMWawN+6SZgg+z8EH+cDMtIQlfY3bJV0AAQKBgQDhepNKNznST/Ou3LqagN8nIMB9XbWJGFXHCi8k1O+fb8FuKTynO+TviUIR74gN0XQ1P3zKjNve8GuFfDBWgaoNU0pIYHCzhXH+X7N4yDm8oyWs5o9UWoEkXjuTacBnVkCimILK3d5wq4tkCBhl4TifUJMXGRZrk+WXcfNteRq8AQKBgQDRy5297fugjBl5L7GcMBn3tWvOHznlPpJErt44psYFGv0M631k+ZBlbn1nv9Lywa/ZCdg7ThQMVTBWrGfC364RdNs8ATCGht9paY4stezvYiBJM/2KFXfgKTWgvJl+RiIOjgNHkV3+OTxBNSLThmYbhO2cXSAD9S+l7LG3sB+2owKBgD1Q9gjyp7i3oU7mG6C0dvrO/0mYWCumAH2WGWfsuBUlcPaiJCpeMU2qh9sUxmzrjqyETU1PrOMdgj/Um9iKflINWmAASeWn3m4MXGP2Hy1bOH2iXUvVKNVZAt59naL8Y6tTyg2c9Eazf75+LRRXgOxiHv3jBqPOnlrm1AnrKwgBAoGARBUj98MHaa6NhbpolRs3EiAaACY6D58isI9fJltY38dGX678Xoxuw7v7jnO97XHVs0VymqxX7TioGziP47nbL2cQzoRETyPt1LOgo/nWDkl12Mu6d9lHscMt2B/cYBI6cya7Abq3Gg1Q9Ihd6O8wq7WTtq6x+RbUg7AwbEAHyqkCgYBPh/eheLU69xql7IGgmtnroPd8QTznIFHo7T+Hc4t/wBtvoOFMCrQgNYeBrZM+Nku2upV82H+2yNNnXpZjy6G8dDwWYlaUpzz96hLG8aEfLowqaoIkPu5Ji5JXSGFXiKOIDokNxWHgilQ18Cb9MnXgM5p8JxRSnD0eQwupCgsuMQ==",
   "permissions": [
     "identity",
     "identity.email",
@@ -11,9 +11,7 @@
     "activeTab",
     "webRequestBlocking",
     "*://learn.stg.nexford.net/*",
-    "*://admin.qa.nexford.net/*",
-    "https://admin.qa.nexford.net/api/neo/grading/start",
-    "*://learn.stg.nexford.net/api/neo/grading/start",
+    "*://learn.nexford.org/*",
     "background",
     "storage",
     "debugger",
@@ -27,7 +25,7 @@
     "default_popup": "index.html"
   },
   "content_scripts": [{
-    "matches": ["*://learn.stg.nexford.net/*", "*://localhost/*"],
+    "matches": ["*://learn.stg.nexford.net/*", "*://learn.nexford.net/*", "*://localhost/*"],
     "js": [ "content.js"],
     "css": [ "index.css" ]
   }],

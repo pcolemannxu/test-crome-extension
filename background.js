@@ -2,15 +2,15 @@ console.log('running background.js');
 
 chrome.runtime.onConnect.addListener(port => {});
 
-function GetParams(pageUrl) { //assigmentId  and studentId I get from the url
+function GetParams(pageUrl) { //AssignmentId  and studentId I get from the url
 		if(pageUrl && pageUrl.includes('teacher_dropbox_assignment/grade')) {
-			const assigmentId =  pageUrl.substring(pageUrl.lastIndexOf('/') + 1, pageUrl.indexOf('?'));
+			const AssignmentId =  pageUrl.substring(pageUrl.lastIndexOf('/') + 1, pageUrl.indexOf('?'));
 			const studentParamFromUrl = pageUrl.split('student=')[1].toString();
 			const studentId = studentParamFromUrl.substring(0, studentParamFromUrl.indexOf('&'));
 
 			const pageInfo = {
-					studentId: studentId,
-					assigmentId: assigmentId
+				studentId: studentId,
+				AssignmentId: AssignmentId
 			};
 			console.log('page info', pageInfo)
 			return pageInfo;
@@ -50,10 +50,28 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
 	if (!sender) {
 		return;
 	}
-	// console.log('message', message, sender, sendResponse, );
-	// console.log('sender url',  sender.url);
+	console.log('message', message, sender, sendResponse, );
+	console.log('sender url',  sender.url);
 
 	switch (message.type) {
+		case "API_TEST": {
+			fetch("https://admin.qa.nexford.net/api/neo/grading/start", {
+				method: 'POST',
+				headers: {
+					'Content-Type': 'application/json',
+					'Authorization': `Bearer ${message.token}`,
+				},
+				body: JSON.stringify(message.data),
+			}).then(() => {
+				sendResponse({message: 'success', success: true });				
+			})
+			.catch(error => {
+				console.error('error:', error);
+				sendResponse({message: 'success', success: false });
+			});
+		    
+			return;
+		}
 		case "GRADING_END":
 			console.log('gragind end in bg');
 			chrome.storage.local.set({ 'Grading': 'end' }, function() { console.log('Value is set'); });
@@ -63,11 +81,11 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
 			try {
 				 chrome.storage.local.get('BearerToken', (result) => {
 					console.log('chrome.storage.local.gettoken in bg.js', result);
-					// const data = GetParams(sender.url); // get from here studentId and AssigmentId
+					// const data = GetParams(sender.url); // get from here studentId and AssignmentId
 
 					const data = {
 						NeoId: 6903876,
-						AssigmentId: 18448372
+						AssignmentId: 18448372
 					}
 					fetch("https://admin.qa.nexford.net/api/neo/grading/start", {
 						method: 'POST',
